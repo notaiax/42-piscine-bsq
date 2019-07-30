@@ -1,0 +1,10 @@
+*.sublime*
+*.sw[op]
+*.vim
+nogit-*
+._*
+*.DS_Store
+.screenrc
+*~
+a.out
+
