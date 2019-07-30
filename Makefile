@@ -5,6 +5,7 @@ all: $(NAME)
 
 .PHONY: clean
 clean:
+	rm -f *.o libft.a
 
 .PHONY: fclean
 fclean: clean
@@ -13,6 +14,11 @@ fclean: clean
 .PHONY: re
 re: clean all
 
-$(NAME): main.c
-	gcc -Wall -Wextra -Werror -o $(NAME) $<
+libft.a: libs/ft_string.c
+	gcc -Wall -Wextra -Werror -c $^
+	ar rc $@ *.o
+	ranlib $@
+
+$(NAME): main.c headers/bsq.h libft.a
+	gcc -Wall -Wextra -Werror -L. -lft -Iheaders -o $(NAME) $<
 

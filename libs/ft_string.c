@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afaura-v <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: migriver <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/12 22:45:19 by afaura-v          #+#    #+#             */
-/*   Updated: 2019/07/17 19:56:32 by afaura-v         ###   ########.fr       */
+/*   Created: 2019/07/29 23:02:23 by migriver          #+#    #+#             */
+/*   Updated: 2019/07/29 23:03:10 by migriver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_putchar(char c);
+#include <unistd.h>
+
+int	ft_putchar(char c)
+{
+	return (write(1, &c, 1));
+}
 
 void	ft_putstr(char *str)
 {

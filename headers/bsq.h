@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   bsq.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afaura-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/17 17:41:46 by afaura-v          #+#    #+#             */
-/*   Updated: 2019/07/29 19:14:57 by afaura-v         ###   ########.fr       */
+/*   Created: 2019/07/29 18:07:49 by afaura-v          #+#    #+#             */
+/*   Updated: 2019/07/29 23:05:13 by migriver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int len;
+#ifndef BSQ_H
+# define BSQ_H
 
-	len = 0;
-	while (str[len] != 0)
-		len++;
-	return (len);
-}
+typedef struct	s_map_info
+{
+	int		lines;
+	int		columns;
+	char	empty;
+	char	obstacle;
+	char	full;
+}				t_map_info;
+
+void				ft_putstr(char *str);
+
+#endif
