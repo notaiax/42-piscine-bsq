@@ -14,7 +14,7 @@ fclean: clean
 .PHONY: re
 re: clean all
 
-libft.a: libs/ft_string.c
+libft.a: libs/ft_string.c libs/ft_read_file.c
 	gcc -Wall -Wextra -Werror -c $^
 	ar rc $@ *.o
 	ranlib $@
