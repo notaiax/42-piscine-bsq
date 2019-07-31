@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <all.h>
 
 void	bsq(char *map);
@@ -43,7 +44,7 @@ void	bsq(char *map)
 {
 	t_map_info	mi;
 	t_obstacle	*obs;
-	t_square *biggest;
+	t_box *biggest;
 
 	mi = new_map_info(9, '.', 'o', 'x');
 	mi.columns = 28;

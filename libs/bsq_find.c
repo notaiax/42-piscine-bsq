@@ -10,37 +10,52 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <all.h>
 
-int		has_obstacle(t_square *cs, t_obstacle **obs)
+void	bsq_expand_box(t_box *cb, t_map_info mi, t_obstacle **obs)
 {
-	while (*obs != (void *)0)
+	while (cb.x + cb.size < mi.columns && cb.y + cb.size < mi.lines)
 	{
-		if ((*obs)->x >= cs->x && (*obs)->x <= cs->x + c->size - 1 &&
-				(*obs)->y >= cs->y && (*obs)->y <= cs->y + c->size - 1)
-			return (1);
-		*obs = *obs->next;
+		if (bsq_has_obstacle(&cb, obs))
+		{
+			cb.size--;
+			break ;
+		}
+		cb.size++;
 	}
-	return (0);
+	return ;
 }
 
-t_square	*bsq_find(char *map, t_map_info mi, t_obstacle **obs)
+t_box	*bsq_find(char *map, t_map_info *mi, t_obstacle **obs)
 {
-	t_square	*biggest;
-	t_square	*cs;
+	t_box	biggest;
+	t_box	cb;
 	int			i;
 
-	biggest = new_square(0, 0, 0);
-	cs = new_square(0, 0, 1);
+	biggest = new_box(mi.columns, mi.lines, 1);
+	cb = new_box(0, 0, 1);
 	i = -1;
 	while (map[++i] != '\0')
 	{
 		if (map[i] == '\n')
 			continue;
-		if (has_obstacle(cs, obs))
-			;
+		bsq_expand_box(&cb, &mi, obs);
+		if (cb.size > biggest.size ||
+				(cb.size == biggest.size && cb.x < biggest.x && cb.y < biggest.y)
+			biggest = cb;
 	}
 	return (biggest);
+}
+
+int		bsq_has_obstacle(t_box *cb, t_obstacle **obs)
+{
+	while (*obs != (void *)0)
+	{
+		if ((*obs)->x >= cb->x && (*obs)->x <= cb->x + c->size - 1 &&
+				(*obs)->y >= cb->y && (*obs)->y <= cb->y + c->size - 1)
+			return (1);
+		*obs = *obs->next;
+	}
+	return (0);
 }
