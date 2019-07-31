@@ -14,11 +14,16 @@ fclean: clean
 .PHONY: re
 re: clean all
 
-libft.a: libs/ft_string.c libs/ft_read_file.c
-	gcc -Wall -Wextra -Werror -c $^
-	ar rc $@ *.o
+libft.a: libs/ft_string.c
+	gcc -Wall -Wextra -Werror -Iheaders -c $^
+	ar rc $@ $(patsubst libs/%.c,%.o,$^)
 	ranlib $@
 
-$(NAME): main.c headers/bsq.h libft.a
-	gcc -Wall -Wextra -Werror -L. -lft -Iheaders -o $(NAME) $<
+libbsq.a: libs/bsq_input.c
+	gcc -Wall -Wextra -Werror -Iheaders -c $^
+	ar rc $@ $(patsubst libs/%.c,%.o,$^)
+	ranlib $@
+
+$(NAME): main.c headers/bsq.h libft.a libbsq.a
+	gcc -Wall -Wextra -Werror -L. -lft -lbsq -Iheaders -o $(NAME) $<
 

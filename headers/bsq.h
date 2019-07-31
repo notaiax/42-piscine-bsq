@@ -6,7 +6,7 @@
 /*   By: afaura-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 18:07:49 by afaura-v          #+#    #+#             */
-/*   Updated: 2019/07/30 20:57:10 by afaura-v         ###   ########.fr       */
+/*   Updated: 2019/07/31 00:01:35 by afaura-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct	s_box
 	int size;
 }				t_box;
 
-void			ft_putstr(char *str);
-char			*ft_read_file(char *filename);
+char			*bsq_read_file(char *filename);
+char			*bsq_read_file_error(char *value, char *filename, char *str);
 
 #endif
