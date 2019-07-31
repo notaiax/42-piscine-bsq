@@ -6,7 +6,7 @@
 /*   By: afaura-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 19:01:43 by afaura-v          #+#    #+#             */
-/*   Updated: 2019/07/30 19:03:06 by afaura-v         ###   ########.fr       */
+/*   Updated: 2019/07/30 21:40:51 by afaura-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,28 @@
 #include <stdlib.h>
 #define BUF_SIZE 4096
 
-char	*read_file(int argc, char **argv)
+int		ft_strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != 0 && s2[i] != 0)
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+char	*ft_read_file(char *filename)
 {
 	int		fd;
 	int		ret;
 	char	*buf;
 
-	fd = 0;
 	buf = (char*)malloc(sizeof(*buf) * (BUF_SIZE + 1));
-	if (argc == 2)
+	if (ft_strcmp(filename, "-") == 0)
+		fd = 0;
+	else
 	{
-		fd = open(argv[1], O_RDONLY);
+		fd = open(filename, O_RDONLY);
 		if (fd == -1)
 		{
 			write(2, "open() error\n", 13);
