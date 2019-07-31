@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./bsq "$(cat $1)"
+cat $@ | ./bsq 
