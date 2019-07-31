@@ -5,7 +5,7 @@ all: $(NAME)
 
 .PHONY: clean
 clean:
-	rm -f *.o libft.a
+	rm -f *.o libft.a libbsq.a
 
 .PHONY: fclean
 fclean: clean
@@ -19,7 +19,7 @@ libft.a: libs/ft_string.c
 	ar rc $@ $(patsubst libs/%.c,%.o,$^)
 	ranlib $@
 
-libbsq.a: libs/bsq_input.c
+libbsq.a: libs/bsq_input.c libs/bsq_helpers.c libs/bsq_find.c
 	gcc -Wall -Wextra -Werror -Iheaders -c $^
 	ar rc $@ $(patsubst libs/%.c,%.o,$^)
 	ranlib $@

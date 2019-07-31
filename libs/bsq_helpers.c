@@ -6,23 +6,24 @@
 /*   By: migriver <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 00:49:21 by migriver          #+#    #+#             */
-/*   Updated: 2019/07/31 00:55:04 by migriver         ###   ########.fr       */
+/*   Updated: 2019/07/31 16:47:58 by migriver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <all.h>
 
 t_box		bsq_itoxy(int i, int columns)
 {
 	t_box nb;
 
-	nb = new_box(0, 0, 1);
+	nb = bsq_new_box(0, 0, 1);
 	nb.x = i % columns;
 	nb.y = i / columns;
 	return (nb);
 }
 
-t_box		new_box(int x, int y, int size)
+t_box		bsq_new_box(int x, int y, int size)
 {
 	t_box nb;
 
@@ -32,19 +33,20 @@ t_box		new_box(int x, int y, int size)
 	return (nb);
 }
 
-t_map_info	new_map_info(int lines, char empty, char obstacle, char full)
+t_map_info	bsq_new_map_info(int l, char e, char o, char f)
 {
 	t_map_info	nmi;
 
-	nmi.lines = lines;
+	nmi.lines = l;
 	nmi.columns = 0;
-	nmi.empty = empty;
-	nmi.obstacle = obstacle;
-	nmi.full = full;
+	nmi.empty = e;
+	nmi.obstacle = o;
+	nmi.full = f;
+	nmi.obstacles = (void *)0;
 	return (nmi);
 }
 
-t_obstacle	*new_obstacle(int x, int y)
+t_obstacle	*bsq_new_obstacle(int x, int y)
 {
 	t_obstacle	*no;
 
@@ -55,7 +57,7 @@ t_obstacle	*new_obstacle(int x, int y)
 	return (no);
 }
 
-int		bsq_xytoi(t_box box)
+int			bsq_xytoi(int x, int y, int columns)
 {
-	return (box.x + box.y * box.x);
+	return (x + y * columns);
 }
