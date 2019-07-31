@@ -6,7 +6,7 @@
 /*   By: afaura-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 18:07:49 by afaura-v          #+#    #+#             */
-/*   Updated: 2019/07/31 00:01:35 by afaura-v         ###   ########.fr       */
+/*   Updated: 2019/07/31 01:05:33 by migriver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,8 @@ typedef struct	s_box
 
 char			*bsq_read_file(char *filename);
 char			*bsq_read_file_error(char *value, char *filename, char *str);
+t_map_info		new_map_info(int lines, char empty, char obstacle, char full);
+t_obstacle		*new_obstacle(int x, int y);
+t_box			*new_box(int x, int y, int size);
 
 #endif
