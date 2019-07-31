@@ -36,10 +36,12 @@ typedef struct	s_box
 	int size;
 }				t_box;
 
+t_box			bsq_itoxy(int i, int columns);
 char			*bsq_read_file(char *filename);
 char			*bsq_read_file_error(char *value, char *filename, char *str);
 t_map_info		new_map_info(int lines, char empty, char obstacle, char full);
 t_obstacle		*new_obstacle(int x, int y);
-t_box			*new_box(int x, int y, int size);
+t_box			new_box(int x, int y, int size);
+int			bsq_xytoi(t_box box);
 
 #endif

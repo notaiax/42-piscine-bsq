@@ -12,14 +12,23 @@
 
 #include <all.h>
 
-t_box		*new_box(int x, int y, int size)
+t_box		bsq_itoxy(int i, int columns)
 {
-	t_box *nb;
+	t_box nb;
 
-	nb = (t_box *)malloc(sizeof(t_box));
-	nb->x = x;
-	nb->y = y;
-	nb->size = size;
+	nb = new_box(0, 0, 1);
+	nb.x = i % columns;
+	nb.y = i / columns;
+	return (nb);
+}
+
+t_box		new_box(int x, int y, int size)
+{
+	t_box nb;
+
+	nb.x = x;
+	nb.y = y;
+	nb.size = size;
 	return (nb);
 }
 
@@ -44,4 +53,9 @@ t_obstacle	*new_obstacle(int x, int y)
 	no->y = y;
 	no->next = (void *)0;
 	return (no);
+}
+
+int		bsq_xytoi(t_box box)
+{
+	return (box.x + box.y * box.x);
 }
