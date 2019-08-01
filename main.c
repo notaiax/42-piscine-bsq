@@ -6,7 +6,7 @@
 /*   By: afaura-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 19:00:35 by afaura-v          #+#    #+#             */
-/*   Updated: 2019/07/31 22:03:06 by migriver         ###   ########.fr       */
+/*   Updated: 2019/07/31 22:33:35 by migriver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		bsq(char *map)
 	t_box		biggest;
 
 	mi = bsq_parse(&map);
+	if (mi.lines == 0)
+		return (ft_puterror(1, "map error\n"));
 	biggest = bsq_find(map, &mi);
 	bsq_print_square(map, &biggest, &mi);
 	return (0);
