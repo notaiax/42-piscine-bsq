@@ -6,24 +6,18 @@
 /*   By: migriver <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 18:20:39 by migriver          #+#    #+#             */
-/*   Updated: 2019/07/31 16:41:30 by migriver         ###   ########.fr       */
+/*   Updated: 2019/07/31 17:33:13 by migriver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <all.h>
 
 void	bsq_expand_box(t_box *cb, t_map_info *mi)
 {
-	while (cb->x + cb->size < mi->columns && cb->y + cb->size < mi->lines)
-	{
-		if (bsq_has_obstacle(cb, mi))
-		{
-			cb->size--;
-			break ;
-		}
+	while (!bsq_has_obstacle(cb, mi) &&
+		(cb->x + cb->size < mi->columns && cb->y + cb->size < mi->lines))
 		cb->size++;
-	}
+	cb->size--;
 	return ;
 }
 
@@ -41,11 +35,10 @@ t_box	bsq_find(char *map, t_map_info *mi)
 		if (map[i] == '\n')
 			continue;
 		bsq_expand_box(&cb, mi);
-		printf("X: %d; Y: %d; Size: %d\n", cb.x, cb.y, cb.size);
-		if (cb.size > biggest.size ||
-				(cb.size == biggest.size &&
-				cb.x < biggest.x && cb.y < biggest.y))
+		if (cb.size > biggest.size)
 			biggest = cb;
+		cb = bsq_itoxy(i, mi->columns + 1);
+		cb.size = biggest.size;
 	}
 	return (biggest);
 }
