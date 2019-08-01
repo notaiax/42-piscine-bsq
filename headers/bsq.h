@@ -48,8 +48,10 @@ t_box			bsq_new_box(int x, int y, int size);
 t_map_info		bsq_new_map_info(int l, char e, char o, char f);
 t_obstacle		*bsq_new_obstacle(int x, int y);
 t_map_info		bsq_parse(char **input);
+void			bsq_print_square(char *map, t_box *biggest, t_map_info *mi);
 char			*bsq_read_file(char *filename);
 char			*bsq_read_file_error(char *value, char *filename, char *str);
+
 int				bsq_xytoi(int x, int y, int columns);
 
 #endif
