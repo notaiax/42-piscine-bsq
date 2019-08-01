@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afaura-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 22:41:17 by afaura-v          #+#    #+#             */
-/*   Updated: 2019/07/31 17:15:26 by afaura-v         ###   ########.fr       */
+/*   Created: 2019/07/15 18:47:38 by afaura-v          #+#    #+#             */
+/*   Updated: 2019/07/31 18:43:30 by afaura-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+int		ft_atoi(char *str)
+{
+	int i;
+	int res;
 
-int		ft_atoi(char *str);
-int		ft_putchar(char c);
-int		ft_putchar_to(int fd, char c);
-int		ft_puterror(int errn, char *str);
-void	ft_putstr(char *str);
-void	ft_putstr_to(int fd, char *str);
-
-#endif
+	i = 0;
+	res = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		res = res * 10 + (int)str[i] - '0';
+		i++;
+	}
+	return (res);
+}

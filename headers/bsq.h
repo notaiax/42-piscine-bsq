@@ -6,7 +6,7 @@
 /*   By: afaura-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 18:07:49 by afaura-v          #+#    #+#             */
-/*   Updated: 2019/07/31 16:48:22 by migriver         ###   ########.fr       */
+/*   Updated: 2019/07/31 18:39:53 by afaura-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_map_info		bsq_new_map_info(int l, char e, char o, char f);
 t_obstacle		*bsq_new_obstacle(int x, int y);
 char			*bsq_read_file(char *filename);
 char			*bsq_read_file_error(char *value, char *filename, char *str);
+t_map_info		bsq_verify_input(char **input);
 int				bsq_xytoi(int x, int y, int columns);
 
 #endif
