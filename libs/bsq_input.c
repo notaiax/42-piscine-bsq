@@ -6,7 +6,7 @@
 /*   By: afaura-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 22:29:28 by afaura-v          #+#    #+#             */
-/*   Updated: 2019/07/31 23:33:19 by migriver         ###   ########.fr       */
+/*   Updated: 2019/07/31 23:37:27 by migriver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <sys/uio.h>
 #include <unistd.h>
 #include <all.h>
-#define BUF_SIZE (1024 * 30)
+#define BUF_SIZE 4096
 
 char		*bsq_read_file(char *filename)
 {
