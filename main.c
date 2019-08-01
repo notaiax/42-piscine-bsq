@@ -6,11 +6,23 @@
 /*   By: afaura-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 19:00:35 by afaura-v          #+#    #+#             */
-/*   Updated: 2019/07/31 00:08:30 by afaura-v         ###   ########.fr       */
+/*   Updated: 2019/07/31 22:03:06 by migriver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <all.h>
+
+int		bsq(char *map)
+{
+	t_map_info	mi;
+	t_box		biggest;
+
+	mi = bsq_parse(&map);
+	biggest = bsq_find(map, &mi);
+	bsq_print_square(map, &biggest, &mi);
+	return (0);
+}
 
 int		main(int argc, char **argv)
 {
@@ -18,10 +30,7 @@ int		main(int argc, char **argv)
 	int			i;
 
 	if (argc < 2)
-	{
-		str = bsq_read_file("-");
-		ft_putstr(str);
-	}
+		return (bsq(bsq_read_file("-")));
 	i = 0;
 	while (++i < argc)
 	{
@@ -31,7 +40,7 @@ int		main(int argc, char **argv)
 			str = bsq_read_file("-");
 		else
 			str = bsq_read_file(argv[i]);
-		ft_putstr(str);
+		bsq(str);
 	}
 	return (0);
 }

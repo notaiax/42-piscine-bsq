@@ -6,11 +6,10 @@
 /*   By: migriver <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 20:07:31 by migriver          #+#    #+#             */
-/*   Updated: 2019/07/31 21:25:04 by migriver         ###   ########.fr       */
+/*   Updated: 2019/07/31 21:57:41 by migriver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <all.h>
 
 void		bsq_add_obstacle(t_map_info *mi, int i)
