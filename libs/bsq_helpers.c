@@ -6,7 +6,7 @@
 /*   By: migriver <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 00:49:21 by migriver          #+#    #+#             */
-/*   Updated: 2019/07/31 16:47:58 by migriver         ###   ########.fr       */
+/*   Updated: 2019/07/31 21:18:33 by migriver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ t_map_info	bsq_new_map_info(int l, char e, char o, char f)
 	t_map_info	nmi;
 
 	nmi.lines = l;
-	nmi.columns = 0;
+	nmi.columns = -1;
 	nmi.empty = e;
 	nmi.obstacle = o;
 	nmi.full = f;
 	nmi.obstacles = (void *)0;
+	nmi.last_obs = (void *)0;
 	return (nmi);
 }
 

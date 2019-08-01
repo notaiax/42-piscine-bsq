@@ -6,7 +6,7 @@
 /*   By: afaura-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 22:29:28 by afaura-v          #+#    #+#             */
-/*   Updated: 2019/07/31 00:01:32 by afaura-v         ###   ########.fr       */
+/*   Updated: 2019/07/31 20:39:40 by migriver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <all.h>
 #define BUF_SIZE 4096
 
-char	*bsq_read_file(char *filename)
+char		*bsq_read_file(char *filename)
 {
 	int		fd;
 	int		ret;
@@ -41,7 +41,7 @@ char	*bsq_read_file(char *filename)
 	return (buf);
 }
 
-char	*bsq_read_file_error(char *value, char *filename, char *str)
+char		*bsq_read_file_error(char *value, char *filename, char *str)
 {
 	ft_puterror(1, filename);
 	ft_puterror(1, ": ");
